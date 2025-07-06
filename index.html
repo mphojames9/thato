@@ -417,6 +417,7 @@
 
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.toggle('show');
+      mobileMenu.classList.toggle('scrolled');
     });
 
     const observer = new IntersectionObserver((entries) => {
