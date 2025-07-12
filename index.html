@@ -38,7 +38,7 @@
  @keyframes fade{
    0%{
      opacity: 0;
-     transform: translate(0, 1em);
+     transform: translate(-3em, 0);
    }
    100%{
      opacity: 1;
@@ -134,7 +134,7 @@
     .mobile-menu a:hover { background: var(---mainColor); }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
+      from { opacity: 0; transform: translateY(-60em); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -506,16 +506,21 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const slides = document.querySelectorAll('.slide');
+    let status = false;
     let currentIndex = 0;
 
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 10);
+      if(status === false){
+              header.classList.toggle('scrolled', window.scrollY > 10);
+      }
+
     });
 
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.toggle('show');
-      if (window.scrollY < 10) {
+      if (window.scrollY < 10 && status === false) {
         header.classList.toggle('scrolled');
+        status = true;
       }
     });
 
