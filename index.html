@@ -24,21 +24,30 @@
       color: #333;
       scroll-behavior: smooth;
       padding-top: 80px;
-
     }
+
+    .in-view {
+  animation: 1000ms fade;
+ 
+ }
+ 
+ .not-in-view{
+   opacity: 0;
+ }
+ 
+ @keyframes fade{
+   0%{
+     opacity: 0;
+     transform: translate(0, 1em);
+   }
+   100%{
+     opacity: 1;
+     transform: translate(0, 0);
+   }
+ }
 
     a { text-decoration: none; color: inherit; }
 
-    .animate {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-
-    .animate.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
     header {
       position: fixed;
@@ -379,14 +388,14 @@
     </div>
   </header>
 
-  <section class="hero animate" id="home">
+  <section class="hero fade" id="home">
     <div>
-      <h1>Feel Beautiful Every Day</h1>
-      <p>Premium hair products for every style and texture.</p>
+      <h1 class="fade">Feel Beautiful Every Day</h1>
+      <p class="fade">Premium hair products for every style and texture.</p>
     </div>
   </section>
 
-  <section class="about animate" id="about">
+  <section class="about fade" id="about">
     <h2>About Us</h2>
     <p>
       At <strong>HairBrand</strong>, we believe beauty starts with confidence—and confidence begins with hair that looks and feels its best.
@@ -399,39 +408,39 @@
     <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
   </section>
 
-  <section class="slideshow-section animate">
+  <section class="slideshow-section fade">
     <h2>Before & After Results</h2>
-    <div class="slideshow-container">
-      <div class="slide">
+    <div class="slideshow-container fade">
+      <div class="slide fade">
         <img src="images/slide1.png" alt="Before and After 1">
       </div>
-      <div class="slide">
+      <div class="slide fade">
         <img src="images/slide2.png" alt="Before and After 2">
       </div>
-      <div class="slide">
+      <div class="slide fade">
         <img src="images/slide3.png" alt="Before and After 3">
       </div>
-            <div class="slide">
+            <div class="slide fade">
         <img src="images/slide4.png" alt="Before and After 3">
       </div>
       <!-- Add more slides as needed -->
     </div>
   </section>
 
-  <section class="products animate" id="products">
+  <section class="products fade" id="products">
     <h2>Our Best Sellers</h2>
-    <div class="product-grid">
-      <div class="product">
+    <div class="product-grid fade">
+      <div class="product fade">
         <img src="images/Shampoo.png" alt="Shampoo">
         <h3>Moisture Shampoo</h3>
         <p>Hydrating and nourishing for curly and dry hair.</p>
       </div>
-      <div class="product">
+      <div class="product fade">
         <img src="images/Serum.png" alt="Serum">
         <h3>Silk Serum</h3>
         <p>Smoothens frizz and adds instant shine.</p>
       </div>
-      <div class="product">
+      <div class="product fade">
         <img src="images/Spray.png" alt="Spray">
         <h3>Volumizing Spray</h3>
         <p>Boosts volume with a weightless feel.</p>
@@ -439,9 +448,9 @@
     </div>
   </section>
 
-  <section class="contact animate" id="contact">
+  <section class="contact fade" id="contact">
     <h2>Contact Us</h2>
-    <div class="contact-form">
+    <div class="contact-form fade">
       <form action="#" method="post">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required>
@@ -458,38 +467,38 @@
   </section>
 
   <footer>
-    <div class="footer-container">
-      <div class="footer-column">
+    <div class="footer-container fade">
+      <div class="footer-column fade">
         <h4>HairBrand</h4>
         <p>Empowering hair confidence with every product.</p>
       </div>
-      <div class="footer-column">
+      <div class="footer-column fade">
         <h4>Explore</h4>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#">Blog</a>
+        <a href="#home" class="fade">Home</a>
+        <a href="#about" class="fade">About</a>
+        <a href="#products" class="fade">Products</a>
+        <a href="#" class="fade">Blog</a>
       </div>
-      <div class="footer-column">
+      <div class="footer-column fade">
         <h4>Support</h4>
-        <a href="#contact">Contact Us</a>
-        <a href="#">FAQs</a>
-        <a href="#">Shipping</a>
+        <a href="#contact" class="fade">Contact Us</a>
+        <a href="#" class="fade">FAQs</a>
+        <a href="#" class="fade">Shipping</a>
       </div>
-      <div class="footer-column social-icons">
+      <div class="footer-column social-icons fade">
         <h4>Follow Us</h4>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook fade"></i></a>
+        <a href="#"><i class="fab fa-instagram fade"></i></a>
+        <a href="#"><i class="fab fa-twitter fade"></i></a>
       </div>
     </div>
-    <div class="copyright">
+    <div class="copyright fade">
       © King Girl All rights reserved.
     </div>
   </footer>
 
   <button id="backToTop" title="Back to Top">
-    <i class="fas fa-chevron-up"></i>
+    <i class="fas fa-chevron-up fade"></i>
   </button>
 
   <script>
@@ -510,13 +519,34 @@
       }
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
+
+    const observer = new IntersectionObserver(
+  (entries)=> {
+entries.forEach((entry) => {
+  if (entry.isIntersecting) {
+    entry.target.classList.add("in-view")
+    entry.target.classList.remove('not-in-view')
+  } else {
+    entry.target.classList.remove("in-view")
+    entry.target.classList.add('not-in-view')
+  } 
+})
+},
+{
+  rootMargin: '0px',
+  threshold: [0, 0.1, 1]
+},)
+
+const tags = document.querySelectorAll('.fade')
+
+tags.forEach((tag) => {
+  observer.observe(tag)
+})
+
+
+
+
+
 
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
