@@ -381,10 +381,10 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" id="mobile-menu-button">Home</a>
+      <a href="#about" id="mobile-menu-button">About</a>
+      <a href="#products" id="mobile-menu-button">Products</a>
+      <a href="#contact" id="mobile-menu-button">Contact</a>
     </div>
   </header>
 
@@ -518,6 +518,14 @@
         header.classList.toggle('scrolled');
       }
     });
+
+    const mobileMenuButtons = document.querySelectorAll("#mobile-menu-button");
+    mobileMenuButtons.forEach(mobileMenuButton => {
+      mobileMenuButton.addEventListener("click", ()=>{
+        mobileMenu.classList.toggle('show');
+      })
+    })
+
 
 
     const observer = new IntersectionObserver(
