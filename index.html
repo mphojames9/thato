@@ -34,6 +34,15 @@
  .not-in-view{
    opacity: 0;
  }
+
+     .slide-in-view {
+  animation: 1000ms slidefade;
+ 
+ }
+ 
+ .slide-not-in-view{
+   opacity: 0;
+ }
  
  @keyframes fade{
    0%{
@@ -42,6 +51,18 @@
    }
    100%{
      opacity: 1;
+     transform: translate(0, 0);
+   }
+ }
+
+  @keyframes slidefade{
+   0%{
+     transform: translate(-50em, 0);
+   }
+    50%{
+    transform: translate(10em, 0);
+   }
+   100%{
      transform: translate(0, 0);
    }
  }
@@ -162,6 +183,10 @@
       transition: ease-in-out 250ms;
     }
 
+    .slideshow-section {
+      background-color: red;
+    }
+
     .about p, .contact p {
       font-size: 1.1rem;
       line-height: 1.8;
@@ -235,6 +260,17 @@
 
     .contact-form button:hover {
       background: #222;
+    }
+
+    .moreTextHide {
+      height: 0px;
+      overflow: hidden;
+      transition: 300ms ease-in-out;
+    }
+
+    .moreTextDisplay {
+      height: 70px;
+      transition: 300ms ease-in-out;
     }
 
     .read-more-btn {
@@ -350,6 +386,37 @@
       background: #a85763;
     }
 
+        /* TOAST NOTIFICATION STYLES */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 15px 20px;
+      color: white;
+      font-weight: bold;
+      min-width: 250px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeInSlide 0.5s ease;
+      opacity: 0.95;
+    }
+
+    .toast-success { 
+      background-color: var(---mainColor);
+      border: 2px solid rgb(48, 241, 48);
+     }
+    .toast-error { 
+      background-color: var(---mainColor);
+      border: 2px solid rgb(255, 0, 0);
+    }
+
+    
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
@@ -361,7 +428,18 @@
       width: 130px;
       height: 40px;
       }
+      .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 5px;
+      
     }
+      @keyframes slidefade {
+      from { opacity: 0; transform: translateX(100%); }
+      to { opacity: 0.95; transform: translateX(0); }
+    }}
+
+
   </style>
 </head>
 <body>
@@ -388,7 +466,7 @@
     </div>
   </header>
 
-  <section class="hero fade" id="home">
+  <section class="hero" id="home">
     <div>
       <h1 class="fade">Feel Beautiful Every Day</h1>
       <p class="fade">Premium hair products for every style and texture.</p>
@@ -401,26 +479,26 @@
       At <strong>HairBrand</strong>, we believe beauty starts with confidence—and confidence begins with hair that looks and feels its best.
       Our journey began with a simple mission: to create premium haircare products that cater to every hair type, texture, and style.
     </p>
-    <p id="moreText" style="display: none;">
+    <p id="moreText" class="moreTextHide">
       We’re passionate about sustainability, clean ingredients, and empowering self-expression through hair.
       Whether you're fighting frizz, craving volume, or seeking shine—HairBrand has your back.
     </p>
     <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
   </section>
 
-  <section class="slideshow-section fade">
+  <section class="slideshow-section">
     <h2>Before & After Results</h2>
-    <div class="slideshow-container fade">
-      <div class="slide fade">
+    <div class="slideshow-container ">
+      <div class="slide">
         <img src="images/slide1.png" alt="Before and After 1">
       </div>
-      <div class="slide fade">
+      <div class="slide">
         <img src="images/slide2.png" alt="Before and After 2">
       </div>
-      <div class="slide fade">
+      <div class="slide">
         <img src="images/slide3.png" alt="Before and After 3">
       </div>
-            <div class="slide fade">
+            <div class="slide">
         <img src="images/slide4.png" alt="Before and After 3">
       </div>
       <!-- Add more slides as needed -->
@@ -448,10 +526,11 @@
     </div>
   </section>
 
+  <!-- Contact Form -->
   <section class="contact fade" id="contact">
     <h2>Contact Us</h2>
     <div class="contact-form fade">
-      <form action="#" method="post">
+      <form id="contactForm">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required>
 
@@ -465,6 +544,9 @@
       </form>
     </div>
   </section>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
 
   <footer>
     <div class="footer-container fade">
@@ -487,9 +569,9 @@
       </div>
       <div class="footer-column social-icons fade">
         <h4>Follow Us</h4>
-        <a href="#"><i class="fab fa-facebook fade"></i></a>
-        <a href="#"><i class="fab fa-instagram fade"></i></a>
-        <a href="#"><i class="fab fa-twitter fade"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
     <div class="copyright fade">
@@ -566,11 +648,10 @@ tags.forEach((tag) => {
     function toggleReadMore() {
       const moreText = document.getElementById("moreText");
       const btn = document.querySelector(".read-more-btn");
-      if (moreText.style.display === "none") {
-        moreText.style.display = "block";
+      moreText.classList.toggle("moreTextDisplay")
+      if (moreText.classList.contains("moreTextDisplay")){
         btn.textContent = "Read Less";
-      } else {
-        moreText.style.display = "none";
+      }else {
         btn.textContent = "Read More";
       }
     }
@@ -584,6 +665,29 @@ tags.forEach((tag) => {
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       showSlide(currentIndex);
+      /////////////////Text
+      const slideObserver = new IntersectionObserver(
+      (entries)=> {
+      entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+      entry.target.classList.add("slide-in-view")
+      entry.target.classList.remove('slide-not-in-view')
+      } else {
+    entry.target.classList.remove("slide-in-view")
+    entry.target.classList.add('slide-not-in-view')
+  } 
+})
+},
+{
+  rootMargin: '0px',
+  threshold: [0, 0.1, 1]
+},)
+
+const tags = document.querySelectorAll('.slide')
+
+tags.forEach((tag) => {
+  slideObserver.observe(tag)
+})////////////////Test
     }
 
     showSlide(currentIndex);
@@ -605,6 +709,26 @@ tags.forEach((tag) => {
         top: 0,
         behavior: 'smooth'
       });
+    });
+
+      function showToast(message, isSuccess = true) {
+      const toast = document.createElement('div');
+      toast.classList.add('toast', isSuccess ? 'toast-success' : 'toast-error');
+      toast.textContent = message;
+      document.getElementById('toastContainer').appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+
+    // Simulated form handler
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const isSuccess = Math.random() > 0.3; // Simulated logic
+      if (isSuccess) {
+        showToast("✅ Your message was sent successfully!", true);
+        this.reset();
+      } else {
+        showToast("❌ Failed to send message. Please try again.", false);
+      }
     });
   </script>
 </body>
