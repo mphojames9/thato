@@ -36,7 +36,7 @@
  }
 
      .slide-in-view {
-  animation: 1000ms slidefade;
+  animation: 2000ms slidefade;
  
  }
  
@@ -57,7 +57,7 @@
 
   @keyframes slidefade{
    0%{
-     transform: translate(-50em, 0);
+     transform: translate(-50em, -10em);
    }
     50%{
     transform: translate(10em, 0);
@@ -181,10 +181,6 @@
       max-width: 1000px;
       margin: auto;
       transition: ease-in-out 250ms;
-    }
-
-    .slideshow-section {
-      background-color: red;
     }
 
     .about p, .contact p {
@@ -435,9 +431,22 @@
       
     }
       @keyframes slidefade {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 0.95; transform: translateX(0); }
-    }}
+    0%{
+    opacity: 0;
+     transform: translate(-18em, -6em);
+   }
+    50%{
+    transform: translate(10em, 0);
+   }
+    100%{
+    opacity: 1;
+    transform: translate(0, 0);
+   }
+  }
+
+
+    
+  }
 
 
   </style>
