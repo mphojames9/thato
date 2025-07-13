@@ -333,6 +333,14 @@
       color: white;
     }
 
+    /* Slideshow styles */
+    .slideshow-container {
+      max-width: 1400px;
+      width:100%;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+    }
 
     .slide {
       display: none;
@@ -437,16 +445,11 @@
   }  
   }
 
-        .tv-container {
-      position: relative;
-      max-width: 1400px;
-      width: 98%;
- 
-    }
-
-    .tv {
-      background: linear-gradient(to bottom, #0000005e 30%, #2222223b 100%);
-      border: 12px solid #111;
+      .tv {
+      max-width: 1000px;
+      width: 90%;
+      background: linear-gradient(to bottom, #000 30%, #222 100%);
+      border: 10px solid #111;
       border-radius: 12px;
       box-shadow: 
         inset 0 0 30px #000,
@@ -454,8 +457,6 @@
         0 -2px 10px rgba(255, 255, 255, 0.1);
       position: relative;
       aspect-ratio: 16 / 9;
-           overflow: hidden;
-           margin: 0 auto;
     }
 
     .screen {
@@ -465,41 +466,12 @@
       border-radius: 4px;
     }
 
-    .antenna {
-      position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 50px;
-      width: 60px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .antenna::before,
-    .antenna::after {
-      content: '';
-      width: 2px;
-      height: 50px;
-      background: #555;
-      transform-origin: bottom;
-      box-shadow: 0 0 4px #000;
-    }
-
-    .antenna::before {
-      transform: rotate(-20deg);
-    }
-
-    .antenna::after {
-      transform: rotate(20deg);
-    }
-
     .stand {
       width: 100px;
       height: 20px;
       background: #222;
       border-radius: 4px;
-      margin: 5px auto 0;
+      margin: 20px auto 0;
       box-shadow: 
         inset 0 0 5px #000,
         0 2px 10px rgba(0,0,0,0.5);
@@ -513,6 +485,8 @@
       border-radius: 5px;
       box-shadow: inset 0 0 3px #000;
     }
+
+
   </style>
 </head>
 <body>
@@ -559,17 +533,8 @@
     <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
   </section>
 
-    <section class="slideshow-section">
+  <section class="slideshow-section">
     <h2>Before & After Results</h2>
-
-    </div>
-  </section>
-
-    <section class="slideshow-section">
-   <div class="tv-container">
-    <div class="antenna"></div>
-    <div class="tv">
-          <div class="screen">
     <div class="slideshow-container ">
       <div class="slide">
         <img src="images/slide1.png" alt="Before and After 1">
@@ -583,14 +548,9 @@
             <div class="slide">
         <img src="images/slide4.png" alt="Before and After 3">
       </div>
-      </div>
       <!-- Add more slides as needed -->
     </div>
-    </div>
-  </div>
-  <div class="stand"></div>
-  <div class="base"></div>
-</section>
+  </section>
 
   <section class="products fade" id="products">
     <h2>Our Best Sellers</h2>
