@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>King Girl</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    * {   
-      margin: 0; padding: 0; box-sizing: border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     :root {
@@ -15,7 +19,7 @@
     }
 
     html {
-           scroll-behavior: smooth;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -27,47 +31,53 @@
     }
 
     .in-view {
-  animation: 1000ms fade;
- 
- }
- 
- .not-in-view{
-   opacity: 0;
- }
+      animation: 1000ms fade;
 
-     .slide-in-view {
-  animation: 2000ms slidefade;
- 
- }
- 
- .slide-not-in-view{
-   opacity: 0;
- }
- 
- @keyframes fade{
-   0%{
-     opacity: 0;
-     transform: translate(-3em, 0);
-   }
-   100%{
-     opacity: 1;
-     transform: translate(0, 0);
-   }
- }
+    }
 
-  @keyframes slidefade{
-   0%{
-     transform: translate(-50em, -10em);
-   }
-    50%{
-    transform: translate(10em, 0);
-   }
-   100%{
-     transform: translate(0, 0);
-   }
- }
+    .not-in-view {
+      opacity: 0;
+    }
 
-    a { text-decoration: none; color: inherit; }
+    .slide-in-view {
+      animation: 2000ms slidefade;
+
+    }
+
+    .slide-not-in-view {
+      opacity: 0;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+        transform: translate(-3em, 0);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes slidefade {
+      0% {
+        transform: translate(-50em, -10em);
+      }
+
+      50% {
+        transform: translate(10em, 0);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
 
     header {
@@ -100,9 +110,15 @@
       color: white;
     }
 
-    .logo { font-size: 1.5rem; font-weight: bold; }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
 
     .nav-links a {
       position: relative;
@@ -121,7 +137,9 @@
       transition: width 0.3s ease;
     }
 
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .hamburger {
       display: none;
@@ -152,11 +170,20 @@
       color: white;
     }
 
-    .mobile-menu a:hover { background: var(---mainColor); }
+    .mobile-menu a:hover {
+      background: var(---mainColor);
+    }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-60em); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-60em);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero {
@@ -171,26 +198,42 @@
       margin-top: -5em;
     }
 
-    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
 
-    section { padding: 30px 0px; }
+    .hero p {
+      font-size: 1.2rem;
+    }
 
-    .about, .products, .contact, .slideshow-section {
+    section {
+      padding: 30px 0px;
+    }
+
+    .about,
+    .products,
+    .contact,
+    .slideshow-section {
       text-align: center;
       max-width: 1000px;
       margin: auto;
       transition: ease-in-out 250ms;
     }
 
-    .about p, .contact p {
+    .about p,
+    .about li,
+    .contact p {
       font-size: 1.1rem;
       line-height: 1.8;
       color: #555;
       margin-bottom: 20px;
     }
 
-    .products h2, .about h2, .contact h2, .slideshow-section h2 {
+    .products h2,
+    .about h2,
+    .contact h2,
+    .slideshow-section h2 {
       margin-bottom: 40px;
       font-size: 2rem;
     }
@@ -207,11 +250,13 @@
     .product {
       background: white;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
     }
 
-    .product:hover { transform: translateY(-5px); }
+    .product:hover {
+      transform: translateY(-5px);
+    }
 
     .product img {
       width: 100%;
@@ -220,7 +265,10 @@
       margin-bottom: 10px;
     }
 
-    .product h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .product h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
 
     .contact-form {
       max-width: 1000px;
@@ -265,7 +313,7 @@
     }
 
     .moreTextDisplay {
-      height: 70px;
+      height: 800px;
       transition: 300ms ease-in-out;
     }
 
@@ -315,7 +363,9 @@
       font-size: 0.95rem;
     }
 
-    .footer-column a:hover { color: #bbb; }
+    .footer-column a:hover {
+      color: #bbb;
+    }
 
     .social-icons i {
       font-size: 1.2rem;
@@ -324,7 +374,9 @@
       transition: 0.3s;
     }
 
-    .social-icons i:hover { color: #bbb; }
+    .social-icons i:hover {
+      color: #bbb;
+    }
 
     .copyright {
       text-align: center;
@@ -336,7 +388,7 @@
     /* Slideshow styles */
     .slideshow-container {
       max-width: 1400px;
-      width:100%;
+      width: 100%;
       margin: auto;
       position: relative;
       overflow: hidden;
@@ -367,7 +419,7 @@
       border-radius: 50%;
       font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease;
@@ -382,7 +434,7 @@
       background: #a85763;
     }
 
-        /* TOAST NOTIFICATION STYLES */
+    /* TOAST NOTIFICATION STYLES */
     .toast-container {
       position: fixed;
       top: 20px;
@@ -398,60 +450,103 @@
       color: white;
       font-weight: bold;
       min-width: 250px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       animation: fadeInSlide 0.5s ease;
       opacity: 0.95;
     }
 
-    .toast-success { 
+    .toast-success {
       background-color: var(---mainColor);
       border: 2px solid rgb(48, 241, 48);
-     }
-    .toast-error { 
+    }
+
+    .toast-error {
       background-color: var(---mainColor);
       border: 2px solid rgb(255, 0, 0);
     }
 
-    
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .mobile-menu.show { display: flex; }
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .navbar {padding: 10px;}
-      .imglogo {
-      width: 130px;
-      height: 40px;
-      }
-      .toast-container {
-      position: fixed;
-      top: 20px;
-      right: 5px;
-      
-    }
-      @keyframes slidefade {
-    0%{
-    opacity: 0;
-     transform: translate(-18em, -6em);
-   }
-    50%{
-    transform: translate(10em, 0);
-   }
-    100%{
-    opacity: 1;
-    transform: translate(0, 0);
-   }
-  }  
-  }
 
-      .tv {
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .navbar {
+        padding: 10px;
+      }
+
+      .imglogo {
+        width: 130px;
+        height: 40px;
+      }
+
+      .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 5px;
+
+      }
+
+
+      @keyframes slidefade {
+        0% {
+          opacity: 0;
+          transform: translate(-18em, -6em);
+        }
+
+        50% {
+          transform: translate(10em, 0);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+
+    @media (max-width: 550px){
+          .moreTextDisplay {
+      height: 900px;
+      transition: 300ms ease-in-out;
+    }
+
+    @media (max-width: 450px){
+      .moreTextDisplay {
+      height: 1000px;
+      transition: 300ms ease-in-out;
+    }}
+
+        @media (max-width: 402px){
+          .moreTextDisplay {
+      height: 1250px;
+      transition: 300ms ease-in-out;
+    }
+    }
+
+    .tv {
       max-width: 1000px;
       width: 90%;
       background: linear-gradient(to bottom, #000 30%, #222 100%);
       border: 10px solid #111;
       border-radius: 12px;
-      box-shadow: 
+      box-shadow:
         inset 0 0 30px #000,
         0 10px 25px rgba(0, 0, 0, 0.7),
         0 -2px 10px rgba(255, 255, 255, 0.1);
@@ -472,9 +567,9 @@
       background: #222;
       border-radius: 4px;
       margin: 20px auto 0;
-      box-shadow: 
+      box-shadow:
         inset 0 0 5px #000,
-        0 2px 10px rgba(0,0,0,0.5);
+        0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .base {
@@ -485,10 +580,9 @@
       border-radius: 5px;
       box-shadow: inset 0 0 3px #000;
     }
-
-
   </style>
 </head>
+
 <body>
   <header id="main-header">
     <nav class="navbar">
@@ -523,13 +617,34 @@
   <section class="about fade" id="about">
     <h2>About Us</h2>
     <p>
-      At <strong>HairBrand</strong>, we believe beauty starts with confidence—and confidence begins with hair that looks and feels its best.
-      Our journey began with a simple mission: to create premium haircare products that cater to every hair type, texture, and style.
-    </p>
-    <p id="moreText" class="moreTextHide">
-      We’re passionate about sustainability, clean ingredients, and empowering self-expression through hair.
-      Whether you're fighting frizz, craving volume, or seeking shine—HairBrand has your back.
-    </p>
+      At <strong>King Girl</strong>, we’re all about empowering strong, beautiful hair—naturally. We exist to help those
+      struggling with thinning strands, bald spots, receding hairlines, or hair that just won’t grow.
+
+      Our plant-powered formulas dive deep into your scalp, nourishing the roots, restoring follicles, and enhancing
+      nutrient absorption. The result? Faster, fuller, healthier hair growth—without any harsh chemicals.
+
+      Because at King Girl, your crown deserves royal treatment.
+    <div id="moreText" class="moreTextHide" style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+      <strong>Why Choose King Girl Products?</strong><br /><br />
+      Our products are 100% organic, natural, and plant-based, crafted to support all hair types whether for men, women,
+      or kids.<br/> <br/>
+
+      <strong>Each formula is designed to:</strong><br/>
+      <ul class="benefits" style="text-align: left; padding: 25px; max-width: 650px; margin: 0 auto; ;">
+        <li>Enhance hair growth and deeply nourish the scalp</li>
+        <li>Protect against dandruff and soothe irritation</li>
+        <li>Speed up cell turnover and hair regeneration</li>
+        <li>Improve blood circulation to reduce hair fall</li>
+        <li>Revitalize hair texture and overall health</li>
+        <li>Prevent premature greying and restore natural hair color</li>
+        <li>Deliver a rich dose of vitamins and amino acids</li>
+        <li>Add shine, boost thickness, and improve volume</li>
+        <li>Strengthen thin hair and reduce split ends—without weighing it down</li>
+        <br />
+        <div style="text-align: center;">At King Girl, we believe in results powered by nature safe, effective, and truly transformative for your hair
+        journey.</div>
+      </ul>
+    </div>
     <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
   </section>
 
@@ -545,7 +660,7 @@
       <div class="slide">
         <img src="images/slide3.png" alt="Before and After 3">
       </div>
-            <div class="slide">
+      <div class="slide">
         <img src="images/slide4.png" alt="Before and After 3">
       </div>
       <!-- Add more slides as needed -->
@@ -639,8 +754,8 @@
     let currentIndex = 0;
 
     window.addEventListener('scroll', () => {
-      if(status === false){
-              header.classList.toggle('scrolled', window.scrollY > 10);
+      if (status === false) {
+        header.classList.toggle('scrolled', window.scrollY > 10);
       }
 
     });
@@ -655,7 +770,7 @@
 
     const mobileMenuButtons = document.querySelectorAll("#mobile-menu-button");
     mobileMenuButtons.forEach(mobileMenuButton => {
-      mobileMenuButton.addEventListener("click", ()=>{
+      mobileMenuButton.addEventListener("click", () => {
         mobileMenu.classList.toggle('show');
       })
     })
@@ -663,27 +778,27 @@
 
 
     const observer = new IntersectionObserver(
-  (entries)=> {
-entries.forEach((entry) => {
-  if (entry.isIntersecting) {
-    entry.target.classList.add("in-view")
-    entry.target.classList.remove('not-in-view')
-  } else {
-    entry.target.classList.remove("in-view")
-    entry.target.classList.add('not-in-view')
-  } 
-})
-},
-{
-  rootMargin: '0px',
-  threshold: [0, 0.1, 1]
-},)
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view")
+            entry.target.classList.remove('not-in-view')
+          } else {
+            entry.target.classList.remove("in-view")
+            entry.target.classList.add('not-in-view')
+          }
+        })
+      },
+      {
+        rootMargin: '0px',
+        threshold: [0, 0.1, 1]
+      },)
 
-const tags = document.querySelectorAll('.fade')
+    const tags = document.querySelectorAll('.fade')
 
-tags.forEach((tag) => {
-  observer.observe(tag)
-})
+    tags.forEach((tag) => {
+      observer.observe(tag)
+    })
 
 
 
@@ -696,9 +811,9 @@ tags.forEach((tag) => {
       const moreText = document.getElementById("moreText");
       const btn = document.querySelector(".read-more-btn");
       moreText.classList.toggle("moreTextDisplay")
-      if (moreText.classList.contains("moreTextDisplay")){
+      if (moreText.classList.contains("moreTextDisplay")) {
         btn.textContent = "Read Less";
-      }else {
+      } else {
         btn.textContent = "Read More";
       }
     }
@@ -714,27 +829,27 @@ tags.forEach((tag) => {
       showSlide(currentIndex);
       /////////////////Text
       const slideObserver = new IntersectionObserver(
-      (entries)=> {
-      entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-      entry.target.classList.add("slide-in-view")
-      entry.target.classList.remove('slide-not-in-view')
-      } else {
-    entry.target.classList.remove("slide-in-view")
-    entry.target.classList.add('slide-not-in-view')
-  } 
-})
-},
-{
-  rootMargin: '0px',
-  threshold: [0, 0.1, 1]
-},)
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("slide-in-view")
+              entry.target.classList.remove('slide-not-in-view')
+            } else {
+              entry.target.classList.remove("slide-in-view")
+              entry.target.classList.add('slide-not-in-view')
+            }
+          })
+        },
+        {
+          rootMargin: '0px',
+          threshold: [0, 0.1, 1]
+        },)
 
-const tags = document.querySelectorAll('.slide')
+      const tags = document.querySelectorAll('.slide')
 
-tags.forEach((tag) => {
-  slideObserver.observe(tag)
-})////////////////Test
+      tags.forEach((tag) => {
+        slideObserver.observe(tag)
+      })////////////////Test
     }
 
     showSlide(currentIndex);
@@ -758,7 +873,7 @@ tags.forEach((tag) => {
       });
     });
 
-      function showToast(message, isSuccess = true) {
+    function showToast(message, isSuccess = true) {
       const toast = document.createElement('div');
       toast.classList.add('toast', isSuccess ? 'toast-success' : 'toast-error');
       toast.textContent = message;
@@ -767,7 +882,7 @@ tags.forEach((tag) => {
     }
 
     // Simulated form handler
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const isSuccess = Math.random() > 0.3; // Simulated logic
       if (isSuccess) {
@@ -779,4 +894,5 @@ tags.forEach((tag) => {
     });
   </script>
 </body>
+
 </html>
